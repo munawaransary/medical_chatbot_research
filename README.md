@@ -150,17 +150,17 @@ streamlit run deployment/streamlit_app.py
 - **Frontend**: Streamlit for demo, FastAPI for production
 - **Deployment**: Docker containers, cloud-ready
 
-## 📝 Research Timeline
+## 📝 Research Timeline (All these are tentative)
 - **Phase 1** (Weeks 1-3): Literature review and dataset analysis
 - **Phase 2** (Weeks 4-8): Data preparation and translation
 - **Phase 3** (Weeks 9-16): Model development and training
 - **Phase 4** (Weeks 17-20): Evaluation and validation
 - **Phase 5** (Weeks 21-24): Research publication
 
-## 🎯 Target Publications
+<!-- ## 🎯 Target Publications
 - **Primary**: ACL 2025, EMNLP 2025
 - **Secondary**: AMIA 2025, ICON 2025
-- **Journal**: Journal of Medical Internet Research
+- **Journal**: Journal of Medical Internet Research -->
 
 ## ⚠️ Important Disclaimers
 - This system is for research purposes only
@@ -175,9 +175,9 @@ We welcome contributions from the research community. Please see our contributio
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 📞 Contact
-- **Researcher**: [Your Name]
-- **Institution**: [Your Institution]
-- **Email**: [Your Email]
+- **Researcher**: Mim Raihan, Munawar Mahtab Ansary
+- **Institution**: BRACU
+- **Email**: munawar.mahtab.ansary@g.bracu.ac.bd
 - **Project Repository**: https://github.com/munawaransary/medical_chatbot_research
 
 ## 🙏 Acknowledgments
