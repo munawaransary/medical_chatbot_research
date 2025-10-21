@@ -1,0 +1,68 @@
+# Model Configuration for Bengali Medical Chatbot
+
+model:
+  name: "bengali-medical-chatbot"
+  version: "0.1.0"
+  
+  # Base model selection
+  base_model:
+    name: "csebuetnlp/banglat5"  # Bengali T5 model
+    alternative: "google/mt5-base"  # Multilingual T5 fallback
+    tokenizer: "csebuetnlp/banglat5"
+  
+  # Model architecture
+  architecture:
+    max_input_length: 512
+    max_output_length: 256
+    num_beams: 4
+    temperature: 0.7
+    top_p: 0.9
+    repetition_penalty: 1.2
+    length_penalty: 1.0
+  
+  # Cultural adaptation module
+  cultural_adapter:
+    enabled: true
+    adaptation_layers: 2
+    cultural_embedding_dim: 128
+    respect_forms: ["আপনি", "স্যার", "ম্যাডাম"]
+    medical_honorifics: ["ডাক্তার সাহেব", "চিকিৎসক"]
+  
+  # Fine-tuning parameters
+  fine_tuning:
+    learning_rate: 5e-5
+    warmup_steps: 1000
+    weight_decay: 0.01
+    gradient_accumulation_steps: 4
+    max_grad_norm: 1.0
+    
+  # Specialized modules
+  specializations:
+    mental_health:
+      enabled: true
+      sensitivity_threshold: 0.8
+      crisis_keywords: ["আত্mahত্যা", "মরে যেতে চাই", "বাঁচতে ইচ্ছে করে না"]
+    
+    pediatric:
+      enabled: true
+      age_detection: true
+      vaccination_schedule: true
+    
+    womens_health:
+      enabled: true
+      cultural_sensitivity: high
+      privacy_mode: true
+
+# Model paths and storage
+paths:
+  model_dir: "experiments/models"
+  checkpoint_dir: "experiments/models/checkpoints"
+  logs_dir: "experiments/logs"
+  cache_dir: ".cache"
+
+# Hardware configuration
+hardware:
+  device: "auto"  # auto, cpu, cuda, mps
+  mixed_precision: true
+  gradient_checkpointing: true
+  dataloader_num_workers: 4

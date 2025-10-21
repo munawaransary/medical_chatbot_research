@@ -1,0 +1,86 @@
+# Core ML and NLP libraries
+torch>=2.0.0
+transformers>=4.30.0
+datasets>=2.12.0
+tokenizers>=0.13.0
+accelerate>=0.20.0
+peft>=0.4.0
+
+# Bengali NLP specific
+bnlp-toolkit>=3.0.0
+indic-nlp-library>=0.81
+polyglot>=16.7.4
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+nltk>=3.8.0
+spacy>=3.6.0
+
+# Translation and language detection
+googletrans>=4.0.0
+langdetect>=1.0.9
+deep-translator>=1.11.0
+
+# Web scraping and data collection
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+scrapy>=2.9.0
+
+# Database and storage
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.0
+pymongo>=4.4.0
+
+# Evaluation metrics
+rouge-score>=0.1.2
+sacrebleu>=2.3.0
+bert-score>=0.3.13
+
+# Visualization and analysis
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+wandb>=0.15.0
+
+# Web framework and API
+fastapi>=0.100.0
+uvicorn>=0.22.0
+streamlit>=1.25.0
+gradio>=3.35.0
+
+# Configuration and utilities
+pyyaml>=6.0
+python-dotenv>=1.0.0
+tqdm>=4.65.0
+click>=8.1.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+black>=23.7.0
+flake8>=6.0.0
+
+# Jupyter and notebooks
+jupyter>=1.0.0
+ipykernel>=6.25.0
+notebook>=7.0.0
+
+# Medical and healthcare specific
+medspacy>=1.0.0
+scispacy>=0.5.3
+
+# Cloud and deployment
+docker>=6.1.0
+boto3>=1.28.0
+azure-storage-blob>=12.17.0
+
+# Monitoring and logging
+loguru>=0.7.0
+prometheus-client>=0.17.0
+
+# Development tools
+pre-commit>=3.3.0
+mypy>=1.5.0
+isort>=5.12.0

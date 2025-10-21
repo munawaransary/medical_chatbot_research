@@ -1,0 +1,150 @@
+# Data Configuration for Bengali Medical Chatbot
+
+data:
+  # Data sources
+  sources:
+    kaggle_medical:
+      url: "https://www.kaggle.com/datasets/yousefsaeedian/ai-medical-chatbot"
+      format: "csv"
+      size_estimate: "200K"
+      priority: "high"
+    
+    kaggle_medical_2:
+      url: "https://www.kaggle.com/datasets/saifulislamsarfaraz/medical-chatbot-dataset"
+      format: "csv"
+      size_estimate: "50K"
+      priority: "medium"
+    
+    bangla_health:
+      url: "https://huggingface.co/datasets/faisal4590aziz/bangla-health-related-paraphrased-dataset"
+      format: "json"
+      size_estimate: "200K"
+      priority: "high"
+      language: "bengali"
+  
+  # Data processing
+  processing:
+    # Text cleaning
+    cleaning:
+      remove_html: true
+      normalize_unicode: true
+      remove_extra_whitespace: true
+      fix_encoding: true
+    
+    # Language detection
+    language_detection:
+      enabled: true
+      confidence_threshold: 0.8
+      target_language: "bn"  # Bengali
+    
+    # Quality filtering
+    quality_filter:
+      min_length: 10
+      max_length: 1000
+      remove_duplicates: true
+      similarity_threshold: 0.9
+  
+  # Translation pipeline
+  translation:
+    # Primary translation service
+    primary_service: "google_translate"
+    backup_service: "azure_translator"
+    
+    # Translation settings
+    settings:
+      source_language: "en"
+      target_language: "bn"
+      batch_size: 100
+      rate_limit: 100  # requests per minute
+      retry_attempts: 3
+      
+    # Medical terminology mapping
+    medical_terms:
+      dictionary_path: "data/medical_terms_en_bn.json"
+      custom_mappings: true
+      preserve_medical_entities: true
+    
+    # Quality assurance
+    quality_check:
+      back_translation: true
+      confidence_threshold: 0.7
+      human_validation_sample: 0.05  # 5% for human review
+  
+  # Data augmentation
+  augmentation:
+    enabled: true
+    techniques:
+      - paraphrasing
+      - back_translation
+      - synonym_replacement
+      - cultural_adaptation
+    
+    paraphrasing:
+      model: "VamsiT5"
+      num_variations: 3
+      diversity_penalty: 0.5
+    
+    cultural_adaptation:
+      respect_forms: true
+      medical_honorifics: true
+      local_terminology: true
+
+  # Dataset splits
+  splits:
+    train: 0.8
+    validation: 0.1
+    test: 0.1
+    
+    # Stratification
+    stratify_by:
+      - medical_specialty
+      - question_type
+      - cultural_context
+
+  # Specialized datasets
+  specializations:
+    mental_health:
+      size_target: 20000
+      sources:
+        - "mental_health_conversations"
+        - "depression_screening_qa"
+        - "anxiety_management_tips"
+    
+    pediatric:
+      size_target: 15000
+      sources:
+        - "child_health_qa"
+        - "vaccination_schedules"
+        - "growth_development"
+    
+    womens_health:
+      size_target: 15000
+      sources:
+        - "reproductive_health_qa"
+        - "pregnancy_care"
+        - "womens_wellness"
+
+# File paths
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  translated_data: "data/translated"
+  augmented_data: "data/augmented"
+  medical_terms: "data/medical_terms_en_bn.json"
+  
+# Validation settings
+validation:
+  medical_accuracy:
+    expert_review: true
+    automated_checks: true
+    fact_verification: true
+  
+  linguistic_quality:
+    grammar_check: true
+    fluency_assessment: true
+    cultural_appropriateness: true
+  
+  inter_annotator_agreement:
+    target_kappa: 0.7
+    num_annotators: 3
+    sample_size: 1000
